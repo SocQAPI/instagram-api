@@ -1,0 +1,1445 @@
+{
+  "schemaVersion": 1,
+  "platform": "instagram",
+  "platformName": "Instagram",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "instagram/followers-count",
+      "name": "Instagram Followers Count API",
+      "description": "Collect public Instagram profile details and visible follower, following, and post counts for usernames or profile URLs.",
+      "method": "POST",
+      "path": "/v1/instagram/followers-count",
+      "payload": "payloads/followers-count.json",
+      "launchedAt": "2026-07-11",
+      "price": "0.52 credits ($0.0026) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.52,
+        "estimateResultCount": 100,
+        "estimateInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/followers-count",
+      "landingUrl": "https://socq.ai/apis/instagram/followers-count",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "urls"
+        ],
+        [
+          "usernames"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Deprecated and ignored. Provide usernames or public profile URLs; use Instagram Search for keyword searches.",
+            "deprecated": true
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [],
+        "description": "Provide usernames or public Instagram profile URLs. query is ignored and cannot be used as the only input.",
+        "anyOf": [
+          {
+            "required": [
+              "urls"
+            ]
+          },
+          {
+            "required": [
+              "usernames"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/posts",
+      "name": "Instagram Posts API",
+      "description": "Collect public Instagram posts for one or more usernames, including captions, author data, media references, hashtags, mentions, and visible engagement metrics.",
+      "method": "POST",
+      "path": "/v1/instagram/posts",
+      "payload": "payloads/posts.json",
+      "launchedAt": "2026-07-11",
+      "price": "0.34 credits ($0.0017) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.34,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/posts",
+      "landingUrl": "https://socq.ai/apis/instagram/posts",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "urls"
+        ],
+        [
+          "usernames"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Deprecated for Instagram Posts and does not select posts. Use usernames or profile URLs, or call Instagram Search.",
+            "deprecated": true
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "urls"
+            ]
+          },
+          {
+            "required": [
+              "usernames"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/reels",
+      "name": "Instagram Reels API",
+      "description": "Collect public Instagram Reels for one or more usernames, including captions, media references, visible engagement metrics, duration, and audio details.",
+      "method": "POST",
+      "path": "/v1/instagram/reels",
+      "payload": "payloads/reels.json",
+      "launchedAt": "2026-07-11",
+      "price": "0.52 credits ($0.0026) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.52,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/reels",
+      "landingUrl": "https://socq.ai/apis/instagram/reels",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "urls"
+        ],
+        [
+          "usernames"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Deprecated and ignored. Provide usernames or public profile URLs; use Instagram Search for keyword searches.",
+            "deprecated": true
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [],
+        "description": "Provide usernames or public Instagram profile URLs. query is ignored and cannot be used as the only input.",
+        "anyOf": [
+          {
+            "required": [
+              "urls"
+            ]
+          },
+          {
+            "required": [
+              "usernames"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/search",
+      "name": "Instagram Search API",
+      "description": "Search public Instagram profiles by keyword or handle and return normalized profile identity, biography, verification, privacy, and visible count fields.",
+      "method": "POST",
+      "path": "/v1/instagram/search",
+      "payload": "payloads/search.json",
+      "launchedAt": "2026-07-11",
+      "price": "0.54 credits ($0.0027) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.54,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/search",
+      "landingUrl": "https://socq.ai/apis/instagram/search",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "One or more search keywords. Separate multiple terms with commas. Punctuation such as @, #, quotes, periods, slashes and hyphens is not supported; do not send natural-language task instructions.",
+            "pattern": "^[^!?.,:;\\-+=*&%$#@/\\\\~^|<>()[\\]{}\"'`]+(?:,[^!?.,:;\\-+=*&%$#@/\\\\~^|<>()[\\]{}\"'`]+)*$"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 250
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Deprecated and ignored for search. Provide query instead.",
+            "deprecated": true
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Deprecated and ignored for search. Provide query instead.",
+            "deprecated": true
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "description": "query is required and accepts keywords, not task instructions. Separate multiple terms with commas; punctuation such as @, #, quotes, periods, slashes and hyphens is unsupported. results_limit is 1 to 250. urls and usernames are deprecated and ignored."
+      }
+    },
+    {
+      "publicId": "instagram/comments",
+      "name": "Instagram Comments API",
+      "description": "Collect normalized public Instagram comments from public post URLs, including text, author fields, timestamps, post references, and visible engagement metrics.",
+      "method": "POST",
+      "path": "/v1/instagram/comments",
+      "payload": "payloads/comments.json",
+      "launchedAt": "2026-07-15",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/comments",
+      "landingUrl": "https://socq.ai/apis/instagram/comments",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/profiles",
+      "name": "Instagram Profiles API",
+      "description": "Retrieve public Instagram profiles for one or more usernames, returning normalized identity, biographies, links, account flags, and visible follower, following, and post counts.",
+      "method": "POST",
+      "path": "/v1/instagram/profiles",
+      "payload": "payloads/profiles.json",
+      "launchedAt": "2026-07-23",
+      "price": "0.6 credits ($0.003) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.6,
+        "estimateResultCount": 1,
+        "estimateInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/profiles",
+      "landingUrl": "https://socq.ai/apis/instagram/profiles",
+      "required": [
+        "usernames"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^@?[A-Za-z0-9._]{1,30}$"
+            },
+            "minItems": 1,
+            "description": "Public Instagram usernames, with an optional leading @.",
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "usernames"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/followers-list",
+      "name": "Instagram Followers List API",
+      "description": "Collect public profile records visible in the follower lists of one or more Instagram usernames, with normalized identity and relationship context.",
+      "method": "POST",
+      "path": "/v1/instagram/followers-list",
+      "payload": "payloads/followers-list.json",
+      "launchedAt": "2026-07-23",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/followers-list",
+      "landingUrl": "https://socq.ai/apis/instagram/followers-list",
+      "required": [
+        "usernames"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [
+          "usernames"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/following-list",
+      "name": "Instagram Following List API",
+      "description": "Collect public profiles followed by one or more Instagram accounts, including profile identity, relationship context, and visible account metrics.",
+      "method": "POST",
+      "path": "/v1/instagram/following-list",
+      "payload": "payloads/following-list.json",
+      "launchedAt": "2026-07-23",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/following-list",
+      "landingUrl": "https://socq.ai/apis/instagram/following-list",
+      "required": [
+        "usernames"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [
+          "usernames"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/hashtag-posts",
+      "name": "Instagram Hashtag Posts API",
+      "description": "Collect public Instagram posts for one or more hashtags, with author details, captions, media, source hashtags, timestamps, and visible engagement metrics.",
+      "method": "POST",
+      "path": "/v1/instagram/hashtag-posts",
+      "payload": "payloads/hashtag-posts.json",
+      "launchedAt": "2026-07-22",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "hashtags",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/hashtag-posts",
+      "landingUrl": "https://socq.ai/apis/instagram/hashtag-posts",
+      "required": [
+        "hashtags"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Hashtags with or without the # prefix."
+          },
+          "media_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "published_within": {
+            "type": "string",
+            "minLength": 1
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 2000
+          }
+        },
+        "required": [
+          "hashtags"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/tagged-posts",
+      "name": "Instagram Tagged Posts API",
+      "description": "Collect public Instagram posts that tag one or more profiles, including captions, authors, media, tagged-user context, mentions, and visible engagement.",
+      "method": "POST",
+      "path": "/v1/instagram/tagged-posts",
+      "payload": "payloads/tagged-posts.json",
+      "launchedAt": "2026-07-23",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/tagged-posts",
+      "landingUrl": "https://socq.ai/apis/instagram/tagged-posts",
+      "required": [
+        "usernames"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [
+          "usernames"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/transcript",
+      "name": "Instagram Transcript API",
+      "description": "Extract transcript records from public Instagram post and Reel URLs, returning text, language, format, source URLs, and shortcodes in a normalized structure.",
+      "method": "POST",
+      "path": "/v1/instagram/transcript",
+      "payload": "payloads/transcript.json",
+      "launchedAt": "2026-07-22",
+      "price": "0.7 credits ($0.0035) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.7,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/transcript",
+      "landingUrl": "https://socq.ai/apis/instagram/transcript",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/audio-reels",
+      "name": "Instagram Audio Reels API",
+      "description": "Collect public Instagram Reels associated with known numeric audio IDs, returning normalized captions, creator identity, media, timestamps, visible engagement, and source audio context.",
+      "method": "POST",
+      "path": "/v1/instagram/audio-reels",
+      "payload": "payloads/audio-reels.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "audio_ids",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/audio-reels",
+      "landingUrl": "https://socq.ai/apis/instagram/audio-reels",
+      "required": [
+        "audio_ids"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "audio_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public Instagram audio identifiers."
+          },
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          }
+        },
+        "required": [
+          "audio_ids"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/highlight-items",
+      "name": "Instagram Highlight Items API",
+      "description": "Retrieve public Story items from known Instagram highlight IDs as normalized records with text, author identity, visible metrics, media details, and source context.",
+      "method": "POST",
+      "path": "/v1/instagram/highlight-items",
+      "payload": "payloads/highlight-items.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 20,
+        "estimateResultCountPerInputField": "highlight_ids",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/highlight-items",
+      "landingUrl": "https://socq.ai/apis/instagram/highlight-items",
+      "required": [
+        "highlight_ids"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "highlight_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public Instagram highlight identifiers."
+          }
+        },
+        "required": [
+          "highlight_ids"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/post-info",
+      "name": "Instagram Post Info API",
+      "description": "Retrieve details for known public Instagram post, Reel, or legacy IGTV URLs, including captions, author identity, media, timestamps, visible engagement, and input context.",
+      "method": "POST",
+      "path": "/v1/instagram/post-info",
+      "payload": "payloads/post-info.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/post-info",
+      "landingUrl": "https://socq.ai/apis/instagram/post-info",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/reels-search",
+      "name": "Instagram Reels Search API",
+      "description": "Search public Instagram Reels with a text query, returning captions, creators, media, timestamps, visible engagement, and query context in normalized records.",
+      "method": "POST",
+      "path": "/v1/instagram/reels-search",
+      "payload": "payloads/reels-search.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/reels-search",
+      "landingUrl": "https://socq.ai/apis/instagram/reels-search",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "published_within": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Search query."
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/story-highlights",
+      "name": "Instagram Story Highlights API",
+      "description": "Collect public Instagram Story Highlight containers from one or more usernames, returning normalized titles, owner identity, media, counts, and reusable highlight IDs.",
+      "method": "POST",
+      "path": "/v1/instagram/story-highlights",
+      "payload": "payloads/story-highlights.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 20,
+        "estimateResultCountPerInputField": "usernames",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/story-highlights",
+      "landingUrl": "https://socq.ai/apis/instagram/story-highlights",
+      "required": [
+        "usernames"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "usernames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public account usernames."
+          }
+        },
+        "required": [
+          "usernames"
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/trending-reels",
+      "name": "Instagram Trending Reels API",
+      "description": "Collect the current Reel set exposed by the trending feed without selectors, returning captions, authors, media, timestamps, and visible engagement.",
+      "method": "POST",
+      "path": "/v1/instagram/trending-reels",
+      "payload": "payloads/trending-reels.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 20,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/trending-reels",
+      "landingUrl": "https://socq.ai/apis/instagram/trending-reels",
+      "required": [],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "publicId": "instagram/stories",
+      "name": "Instagram Stories API",
+      "description": "Collect the stories a public Instagram account is showing right now from its username, returning each story's image or video, posting and expiry times, and link stickers.",
+      "method": "POST",
+      "path": "/v1/instagram/stories",
+      "payload": "payloads/stories.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 10,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/stories",
+      "landingUrl": "https://socq.ai/apis/instagram/stories",
+      "required": [
+        "username"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public Instagram username, with an optional leading @.",
+            "pattern": "^@?[A-Za-z0-9._]{1,30}$"
+          }
+        },
+        "required": [
+          "username"
+        ],
+        "description": "Provide a public Instagram username. Returns the stories the account currently has live; each story stays available for 24 hours after posting."
+      }
+    },
+    {
+      "publicId": "instagram/similar-users",
+      "name": "Instagram Similar Accounts API",
+      "description": "Find the accounts Instagram recommends alongside a public profile from its username, returning each suggestion's username, display name, avatar, and verified status.",
+      "method": "POST",
+      "path": "/v1/instagram/similar-users",
+      "payload": "payloads/similar-users.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 50,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/similar-users",
+      "landingUrl": "https://socq.ai/apis/instagram/similar-users",
+      "required": [
+        "username"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          },
+          "username": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public Instagram username, with an optional leading @.",
+            "pattern": "^@?[A-Za-z0-9._]{1,30}$"
+          }
+        },
+        "required": [
+          "username"
+        ],
+        "description": "Provide a public Instagram username. Returns the accounts Instagram suggests as similar to it; results_limit sets how many to return (default 50, up to 100)."
+      }
+    },
+    {
+      "publicId": "instagram/comment-replies",
+      "name": "Instagram Comment Replies API",
+      "description": "Collect the replies under a public Instagram comment from the post URL and comment ID, returning reply text, authors, like counts, timestamps, and mentioned accounts.",
+      "method": "POST",
+      "path": "/v1/instagram/comment-replies",
+      "payload": "payloads/comment-replies.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/comment-replies",
+      "landingUrl": "https://socq.ai/apis/instagram/comment-replies",
+      "required": [
+        "comment_id",
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "comment_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Numeric ID of the parent comment, such as the id returned by Instagram Comments.",
+            "pattern": "^[0-9]{5,32}$"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public Instagram post, reel or IGTV URL."
+          }
+        },
+        "required": [
+          "comment_id",
+          "url"
+        ],
+        "description": "Provide the post, reel or IGTV url and the comment_id of the comment whose replies you want; results_limit sets how many replies to return (default 100, up to 1000)."
+      }
+    },
+    {
+      "publicId": "instagram/post-likers",
+      "name": "Instagram Post Likers API",
+      "description": "Collect the accounts in a public Instagram post's likers list from its URL, returning each liker's username, display name, avatar, and verified and private status.",
+      "method": "POST",
+      "path": "/v1/instagram/post-likers",
+      "payload": "payloads/post-likers.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/post-likers",
+      "landingUrl": "https://socq.ai/apis/instagram/post-likers",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Public Instagram post, reel or IGTV URL."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "Provide a public post, reel or IGTV url. Returns the accounts shown in the post's likers list; results_limit sets how many to return (default 100, up to 1000)."
+      }
+    },
+    {
+      "publicId": "instagram/location-info",
+      "name": "Instagram Location Info API",
+      "description": "Look up an Instagram location by ID or location page URL and get its name, category, phone, city, coordinates, and how many posts are tagged there.",
+      "method": "POST",
+      "path": "/v1/instagram/location-info",
+      "payload": "payloads/location-info.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per call",
+      "billing": {
+        "baseCredits": 0.5,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/location-info",
+      "landingUrl": "https://socq.ai/apis/instagram/location-info",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "location_id"
+        ],
+        [
+          "url"
+        ]
+      ],
+      "mutuallyExclusive": [
+        [
+          "location_id",
+          "url"
+        ]
+      ],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "location_id": {
+            "type": "string",
+            "pattern": "^[0-9]{1,32}$",
+            "description": "Numeric Instagram location ID, as returned by Instagram Location Search."
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Instagram location page URL, such as https://www.instagram.com/explore/locations/212988663/."
+          }
+        },
+        "required": [],
+        "description": "Identify the location with either location_id or its location page url.",
+        "anyOf": [
+          {
+            "required": [
+              "location_id"
+            ]
+          },
+          {
+            "required": [
+              "url"
+            ]
+          }
+        ],
+        "allOf": [
+          {
+            "not": {
+              "required": [
+                "location_id",
+                "url"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/location-posts",
+      "name": "Instagram Location Posts API",
+      "description": "Collect public posts and reels tagged at an Instagram location by ID or URL, returning captions, authors, likes, comments, media, and timestamps, ordered by top or recent.",
+      "method": "POST",
+      "path": "/v1/instagram/location-posts",
+      "payload": "payloads/location-posts.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 20,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/location-posts",
+      "landingUrl": "https://socq.ai/apis/instagram/location-posts",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "location_id"
+        ],
+        [
+          "url"
+        ]
+      ],
+      "mutuallyExclusive": [
+        [
+          "location_id",
+          "url"
+        ]
+      ],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "location_id": {
+            "type": "string",
+            "pattern": "^[0-9]{1,32}$",
+            "description": "Numeric Instagram location ID, as returned by Instagram Location Search."
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+          },
+          "sort_by": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "recent",
+              "top"
+            ],
+            "default": "top"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Instagram location page URL, such as https://www.instagram.com/explore/locations/212988663/."
+          }
+        },
+        "required": [],
+        "description": "Identify the location with either location_id or its location page url. Set sort_by to top (default) for the location's top posts or recent for the newest posts; results_limit sets how many posts to return (default 20, up to 100).",
+        "anyOf": [
+          {
+            "required": [
+              "location_id"
+            ]
+          },
+          {
+            "required": [
+              "url"
+            ]
+          }
+        ],
+        "allOf": [
+          {
+            "not": {
+              "required": [
+                "location_id",
+                "url"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/location-search",
+      "name": "Instagram Location Search API",
+      "description": "Search Instagram locations by place name or by latitude and longitude, returning location IDs with names, addresses, cities, and coordinates for follow-up lookups.",
+      "method": "POST",
+      "path": "/v1/instagram/location-search",
+      "payload": "payloads/location-search.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per call",
+      "billing": {
+        "baseCredits": 0.5,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/location-search",
+      "landingUrl": "https://socq.ai/apis/instagram/location-search",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "query"
+        ],
+        [
+          "latitude",
+          "longitude"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Place name, landmark or city to search for.",
+            "maxLength": 100
+          }
+        },
+        "required": [],
+        "description": "Search by place name with query, or by a point on the map with latitude and longitude. Coordinate search returns the places around that point.",
+        "anyOf": [
+          {
+            "required": [
+              "query"
+            ]
+          },
+          {
+            "required": [
+              "latitude",
+              "longitude"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "instagram/search-hashtags",
+      "name": "Instagram Hashtag Search API",
+      "description": "Search Instagram hashtags by keyword and get the matching tags with their IDs, tag page links, and the number of posts using each one.",
+      "method": "POST",
+      "path": "/v1/instagram/search-hashtags",
+      "payload": "payloads/search-hashtags.json",
+      "launchedAt": "2026-11-09",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 50,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/instagram/search-hashtags",
+      "landingUrl": "https://socq.ai/apis/instagram/search-hashtags",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Keyword to match against hashtag names, with or without a leading #.",
+            "maxLength": 100
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "description": "Provide one keyword in query; a leading # is optional. results_limit sets how many hashtags to return (default 50, up to 100)."
+      }
+    }
+  ]
+}
